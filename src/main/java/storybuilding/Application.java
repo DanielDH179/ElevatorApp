@@ -14,7 +14,7 @@ public class Application {
     
     private static Elevator elevator;
 
-    private static final boolean USE_DEFAULT = true, SHOW_DEBUG = true;
+    private static final boolean USE_DEFAULT = false, SHOW_DEBUG = true;
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
     
     public static void main(String[] args) {
@@ -49,8 +49,7 @@ public class Application {
             logger.error("Tried to append an illegal call");
         }
         if (SHOW_DEBUG)
-            for (Call call : calls)
-                System.out.print(call + (false ? ", " : "\n"));
+            System.out.println(calls);
         return calls;
     }
 
@@ -69,6 +68,8 @@ public class Application {
                 logger.error("{}: ({}, {})", counter, origin, destination);
             }
         }
+        if (SHOW_DEBUG)
+            System.out.println(calls);
         return calls;
     }
     
